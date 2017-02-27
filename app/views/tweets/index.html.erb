@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="wrapper col-md-3 col-ex-10">
+    <br>
+    <h3 class="title">EXAM1 課題</h3>
+    <br>
+    <%= link_to "つぶやく", new_tweet_path, class: 'btn btn-default' %>
+    <br>
+    <p>作成者　井上陽介</p>
+    <p>プログラミング2か月目です。</p>
+  </div>
+  <div class="wrapper col-md-8  col-ex-10">
+    <p><%= notice %></p>
+    
+    
+    <h1>つぶやき一覧</h1>
+    
+    <% @tweets.each do |tweet| %>
+    <div class="row">
+      <p><%= tweet.content %></p>
+      <%= link_to "編集", edit_tweet_path(tweet.id), class: 'btn btn-default' %>
+      <%= link_to "削除", tweet_path(tweet.id), method: :delete, data: { confirm: '本当に削除してよろしいですか？'},class: 'btn btn-danger' %>
+    </div>
+    <% end %>
+  </div>
+</div>
